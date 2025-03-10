@@ -1,5 +1,10 @@
 <script setup>
 import {Link} from "@inertiajs/vue3";
+import MainLayout from "@/Layouts/MainLayout.vue";
+
+defineOptions({
+  layout: MainLayout,
+});
 
 defineProps({
   posts: {
@@ -16,15 +21,24 @@ defineProps({
       Posts
     </h1>
     <div>
-      <Link :href="route('post.create')" class="bg-sky-500 rounded-full text-center text-white block p-2 w-32 hover:bg-white hover:text-sky-500 border border-sky-500">
+      <Link :href="route('post.create')" class="bg-white rounded-full text-center text-black block p-2 border hover:bg-gray-100 hover:border- ">
         Add Post
       </Link>
     </div>
 
-    <div v-if="posts.length > 0" class="mt-8">
-      <div v-for="post in posts" :key="post.id" class="mb-4 p-4 border rounded-lg">
+    <div v-if="posts" class="mt-8">
+      <div v-for="post in posts" class="mb-4 p-4 border rounded-3xl">
+<!--        <p class="text-gray-600 text-xs text-right">ID: {{ post.id }}</p>-->
         <h2 class="text-xl font-semibold">{{ post.title }}</h2>
         <p class="text-gray-600">{{ post.content }}</p>
+        <p class="text-gray-600 text-xs mt-4 text-right" >{{ post.date }}</p>
+<!--        <p class="text-gray-600">{{ post.updated_at }}</p>-->
+        <div class="text-gray-600 text-xs mt-4 text-right">
+          <Link :href="route('post.show', post.id)" class="bg-gray-100 p-1 px-4 rounded-full text-black">
+            Show
+          </Link>
+        </div>
+
       </div>
     </div>
 

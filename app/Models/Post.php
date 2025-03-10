@@ -9,4 +9,6 @@ class Post extends Model
     protected $guarded = false;
     protected $table = 'posts';
 
+//    protected $dates = ['']
+
 }
