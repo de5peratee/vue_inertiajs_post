@@ -17,15 +17,15 @@ defineProps({
 
 <template>
     <h1 class="text-lg mb-8">
-      Posts
+      Пост
     </h1>
-    <Link :href="route('post.index')" class="text-sm mb-2 text-sky-500">
-      Back
+    <Link :href="route('post.index')" class="text-sm border rounded-full p-1 px-4 text-center truncate inline-block ml-auto">
+      Назад
     </Link>
 
     <div v-if="post" class="mt-8">
       <div class="mb-4 p-4 border rounded-3xl">
-        <h2 class="text-xl font-semibold">{{ post.title }}</h2>
+        <h2 class="text-xl">{{ post.title }}</h2>
         <p class="text-gray-600">{{ post.content }}</p>
         <p class="text-gray-600 text-xs mt-4 text-right" >{{ post.date }}</p>
       </div>
